@@ -1,0 +1,70 @@
+body {
+    background-color: #324050;
+}
+
+table, th, tbody, td {
+    background-color: #26363f;
+    color: white;
+    border: 2px solid #3d4846;
+    vertical-align: top;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.abbreviation {
+    font-size: 36px;
+    font-weight: lighter;
+    position: relative;
+    top:5px;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0px;
+}
+
+.description {
+    position: relative;
+    top: 4px;
+    font-size: 9px;
+    height: 32px;
+}
+
+.example {
+    position: relative;
+    top: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    width: 45%;
+}
+
+.theme {
+    position: relative;
+    top: 4px;
+    font-size: 14px;
+    float: left;
+    width: 45%;
+    text-align: right;
+}
+
+.disruption_cell {
+    width: 120px;
+    height: 120px;
+}
+
+.horizon1 {
+    color: #41bd53;
+}
+
+.horizon2 {
+    color: #e5dd5d;
+}
+
+.horizon3 {
+    color: #ee305c;
+}
+
+.horizon4 {
+    color: #798479;
+}
