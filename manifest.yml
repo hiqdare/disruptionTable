@@ -1,5 +1,5 @@
 ---
 applications:
  - name: DisruptingTechnologies
-   host: techdisrupt.eu-de.mybluemix.net/
+   host: techdisrupt
    memory: 128M
