@@ -7,3 +7,5 @@ Werkzeug==0.14.1
 cloudant==2.4.0
 gunicorn==19.7.1
 prometheus-client
+ibmcloudenv
+livereload
