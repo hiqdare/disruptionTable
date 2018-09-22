@@ -1,9 +1,16 @@
 from server import app
 from flask import render_template
 
-@app.route('/')
-def hello_world():
-    return app.send_static_file('index.html')
+@app.route("/")
+def home():
+    return render_template(
+        "index.html",
+        title='Table of Disruptive Technologies'
+    )
+
+@app.route("/api/data")
+def get_data():
+    return app.send_static_file("data.json")
 
 @app.errorhandler(404)
 @app.route("/error404")
