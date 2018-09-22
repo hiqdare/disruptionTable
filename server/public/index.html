@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Table of Disruptive Technologies" />
+        <meta name="author" content="Henrique Säuberli" />
+        <title>{{ title }}</title>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <table id="disruption_table" class="main_table">
+                <tbody />
+            </table>
+        </div>    
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        -->
+
+        <link rel='stylesheet' href='/static/site.css' />
+
+        <script>
+            $(function(){
+                var table = document.getElementById("disruption_table");
+                for (var i = 0; i < 10; i++) {
+                    row = table.insertRow(i);
+                    for (var j = 0; j < 10; j++) {
+                        cell = row.insertCell(j);
+                        cell.classList.add("disruption_cell")
+                        cell.id = "element" + (9-i) + j;
+                    }
+                }
+                var abbreviation;
+                $.get("./api/data", "cache: false")
+                    .done(function(data) {
+                        if(data.length > 0) {
+                            console.log(data);
+                            for (var i = 0; i < data.length; i++) {
+                                abbreviation = $("<div class=\"abbreviation\"></div>").text(data[i].abbreviation);
+                                abbreviation.addClass("horizon" + data[i].horizon);
+                                description = $("<div class=\"description\"></div>").text(data[i].description);
+                                example = $("<div class=\"example\"></div>").text(data[i].example);
+                                theme = $("<div class=\"theme\"></div>").text(data[i].theme);
+                                lastline = $("<div class=\"lastline\"></div>").append(example, theme);
+                                $("#element" + data[i].key).append(abbreviation, description, lastline);
+                            }
+                        }
+                    });
+            });
+        </script>    
+    </body>
+</html>

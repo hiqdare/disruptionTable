@@ -7,6 +7,6 @@ Werkzeug==0.14.1
 cloudant==2.4.0
 gunicorn==19.7.1
 prometheus-client
+cloudant==2.4.0
 ibmcloudenv
 livereload
-cloudant==2.4.0
